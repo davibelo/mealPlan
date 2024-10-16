@@ -1,3 +1,6 @@
+# environment files
+*.env
+
 # Ignore build results
 backend/[Dd]ebug/
 backend/[Dd]ebugPublic/
