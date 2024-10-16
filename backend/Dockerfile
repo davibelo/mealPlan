@@ -1,25 +1,17 @@
-# frontend/Dockerfile
+# Use the official .NET 8.0 SDK image
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
+WORKDIR /backend
 
-# Use Node.js 20 base image
-FROM node:20.18.0-alpine
+# Copy csproj and restore as distinct layers
+COPY *.csproj .
+RUN dotnet restore
 
-# Set the working directory inside the container
-WORKDIR /frontend
+# Copy everything else and build
+COPY . .
+RUN dotnet publish -c Release -o out
 
-# Copy package.json and package-lock.json from the frontend folder
-COPY package*.json .
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the frontend folder contents
-COPY . /frontend
-
-# Build the React app for production
-RUN npm run build
-
-# Expose the port the app will run on
-EXPOSE 3000
-
-# Command to start the app
-CMD ["npm", "start"]
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "backend.dll"]
