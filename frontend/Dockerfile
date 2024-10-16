@@ -18,6 +18,9 @@ COPY . /frontend
 # Build the React app for production
 RUN npm run build
 
+# Set environment variable
+ENV REACT_APP_BACKEND_URL=http://localhost:8080
+
 # Expose the port the app will run on
 EXPOSE 3000
 
