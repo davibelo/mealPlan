@@ -1,3 +1,6 @@
+# database files
+postgres_data/
+
 # environment files
 *.env
 
