@@ -1,3 +1,113 @@
+# Ignore build results
+backend/[Dd]ebug/
+backend/[Dd]ebugPublic/
+backend/[Rr]elease/
+backend/[Rr]eleases/
+backend/x64/
+backend/x86/
+backend/[Aa][Rr][Mm]/
+backend/[Aa][Rr][Mm]64/
+backend/bld/
+backend/[Bb]in/
+backend/[Oo]bj/
+backend/[Ll]og/
+backend/[Ll]ogs/
+backend/msbuild.log
+backend/msbuild.node.log
+backend/*.tlog
+backend/*.log
+backend/*.vspx
+backend/*.nupkg
+backend/*.snupkg
+backend/*.pkg
+backend/*.Symbols.nupkg
+
+# DotNet specific files for backend
+backend/project.lock.json
+backend/project.fragment.lock.json
+backend/artifacts/
+backend/*.runtimeconfig.dev.json
+
+# NuGet for backend
+backend/*.nupkg
+backend/*.snupkg
+backend/.nuget/
+backend/packages/
+backend/*.nupkg
+backend/project.assets.json
+backend/project.nuget.cache
+backend/*.props
+backend/*.targets
+backend/*.psmdcp
+
+# Coverage reports and test results
+backend/coverage/
+backend/*.coverage
+backend/*.coveragexml
+backend/TestResults/
+backend/*.trx
+backend/*.coverage
+backend/*.coveragexml
+backend/*.testlogger
+
+# SQL Server project files
+backend/*.mdf
+backend/*.ldf
+backend/*.dbmdl
+backend/*.dbproj.schemaview
+
+# Entity Framework
+backend/*.edmx.diagram
+backend/*.edmx.sql
+backend/*.dbml
+backend/*.dbml.layout
+
+# Docker-related files
+docker-compose.override.yml
+docker-compose.*
+.docker/
+
+# Visual Studio Code specific files
+.vscode/
+backend/.vscode/
+backend/.vscode-test/
+
+# Local History for Visual Studio Code
+backend/.history/
+
+# Application Insights
+backend/ApplicationInsights.config
+
+# MacOS-specific files
+backend/.DS_Store
+
+# Backup & upgrade reports
+backend/_UpgradeReport_Files/
+backend/Backup*/
+backend/UpgradeLog*.XML
+backend/UpgradeLog*.htm
+
+# IIS logs
+backend/IISExpress/
+
+# Logs and temp files
+backend/*.log
+backend/tmp/
+backend/temp/
+
+# Node.js for React front-end (if applicable)
+frontend/node_modules/
+frontend/.npm/
+frontend/.yarn/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Ignore generated files
+*.swp
+*.swo
+
 # dependencies
 frontend/node_modules
 frontend/.pnp

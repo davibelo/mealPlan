@@ -1,25 +1,25 @@
-# backend/Dockerfile
+# frontend/Dockerfile
 
-# Use an official Python runtime as a base image
-FROM python:3.12
+# Use Node.js 20 base image
+FROM node:20.18.0-alpine
 
-# Set the working directory in the container
-WORKDIR /backend
+# Set the working directory inside the container
+WORKDIR /frontend
 
-# Copy the requirements file into the container
-COPY requirements.txt /backend/
+# Copy package.json and package-lock.json from the frontend folder
+COPY package*.json .
 
-# Install any dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install dependencies
+RUN npm install
 
-# Copy the rest of the application code
-COPY . /backend/
+# Copy the rest of the frontend folder contents
+COPY . /frontend
 
-# Set environment variable for Django settings
-ENV DJANGO_SETTINGS_MODULE=backend.settings
+# Build the React app for production
+RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 8000
+# Expose the port the app will run on
+EXPOSE 3000
 
-# Define the default command to run the Django app
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Command to start the app
+CMD ["npm", "start"]
